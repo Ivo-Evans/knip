@@ -20,6 +20,7 @@ test('Find dependencies with the Astro plugin', async () => {
   assert(issues.files.has(join(cwd, 'src/pages/blog/_nested-unused-file.ts')));
   assert(issues.files.has(join(cwd, 'src/pages/blog/_util/unused-component.astro')));
   assert(issues.files.has(join(cwd, 'src/pages/blog/_util/nested/deeply-nested-unused-file.ts')));
+  assert(issues.files.has(join(cwd, 'src/pages/blog/_util/nested/deeply-nested-storybook-file.stories.ts')) === false); // this fails
 
   assert.deepEqual(counters, {
     ...baseCounters,
